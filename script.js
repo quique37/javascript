@@ -54,7 +54,7 @@ console.log(firstName + ' ' + lastName);
  * Basic Operators
  */
 
- /*
+/*
 let year, yearJohn, yearMark;
 now = 2018;
 ageJohn = 28;
@@ -85,7 +85,7 @@ console.log(typeof x);
  * Operators precedence 
  */
 
- /*
+/*
 let now = 2018;
 let yearJohn = 1989;
 let fullAge = 18;
@@ -163,7 +163,7 @@ console.log('Is Mark\'s BMI higher than John\'s? ' + highestBMI)
  * If / else statements
  */
 
- /*
+/*
 let firstName = 'John';
 let civilStatus = 'single';
 
@@ -208,7 +208,7 @@ if (bmiMark > bmiJohn) {
  * Boolean Logic
  */
 
- /*
+/*
 let firstName = 'John';
 let age = 20;
 
@@ -306,28 +306,28 @@ if (height == 23) {
  * CODING CHALLENGE 2
  */
 
- /*
- John and Mike both play basketball in different teams. In the
- latest 3 games, John's team scored 89, 120 and 103 points, while
- Mike's team scored 116, 94 and 123 points.
+/*
+John and Mike both play basketball in different teams. In the
+latest 3 games, John's team scored 89, 120 and 103 points, while
+Mike's team scored 116, 94 and 123 points.
 
- 1. Calculate the average score for each team.
- 2. Decide which teams wins in average (highest average score), 
- and print the winner to the console. Also include the average
- score in the output.
- 3. Then change the scores to show different winners. Don't forget
- to take into account there might be a draw (the same average score).
+1. Calculate the average score for each team.
+2. Decide which teams wins in average (highest average score), 
+and print the winner to the console. Also include the average
+score in the output.
+3. Then change the scores to show different winners. Don't forget
+to take into account there might be a draw (the same average score).
 
- 4. EXTRA: Mary also plays basketball, and her team scored 97,
- 134 and 105 points. Like before, log the average winner to the
- console. HINT: you will need the && operator to take the decision.
- If you can't solve this one, just watch the solution, it's no problem
- :)
- 5. Like before, change the scores to generate different winners,
- keeping in mind there might be draws.
+4. EXTRA: Mary also plays basketball, and her team scored 97,
+134 and 105 points. Like before, log the average winner to the
+console. HINT: you will need the && operator to take the decision.
+If you can't solve this one, just watch the solution, it's no problem
+:)
+5. Like before, change the scores to generate different winners,
+keeping in mind there might be draws.
 
- GOOD LUCK 
- */
+GOOD LUCK 
+*/
 
 /*
  1.
@@ -365,9 +365,10 @@ if (teamJohn > teamMike && teamJohn > teamMary) {
  * Functions
  */
 
- function calculateAge(birthYear) {
-    return 2018 - birthYear;
- }
+
+function calculateAge(birthYear) {
+    return 2019 - birthYear;
+}
 
 var ageJohn = calculateAge(1990);
 var ageMike = calculateAge(1948);
@@ -384,23 +385,129 @@ function yearsUntilRetirement(year, firstName) {
         console.log(firstName + ' is already retired.');
     }
 }
-    
-    yearsUntilRetirement(1990, 'John');
-    yearsUntilRetirement(1948, 'Mike');
-    yearsUntilRetirement(1969, 'Jane');
+
+yearsUntilRetirement(1990, 'John');
+yearsUntilRetirement(1948, 'Mike');
+yearsUntilRetirement(1969, 'Jane');
 
 
+/**************************
+ * Function Statements and Expressions
+ */
 
 
+// Function Declaration
+
+function whatDoYouDo(job, firstName) {}
+
+// Function Expression
+var whatDoYouDo = function(job, firstName) {
+    switch (job) {
+        case 'teacher':
+            return firstName + ' teaches kids how to code.';
+        case 'driver':
+            return firstName + ' drives a cab in Lisbon.';
+        case 'designer':
+            return firstName + ' designs beautiful websites.';
+        default:
+            return firstName + ' does something else.';
+    }
+}
+console.log(whatDoYouDo('teacher', 'John'));
+console.log(whatDoYouDo('driver', 'Mark'));
+console.log(whatDoYouDo('engineer', 'Jane'));
+
+/*****************************
+ * Arrays
+ */
 
 
+var names = ['John', 'Mark', 'Jane'];
+var years = new Array(1990, 1969, 1948);
 
+console.log(names[2]);
+console.log(names.length);
 
+// Mutate array data
+names[1] = 'Ben';
+names[names.length] = 'Mary';
+console.log(names);
 
+// Different Data Types
+var john = ['John', 'Smith', 1990, 'designer', false];
 
+john.push('blue'); // Adds the 'blue' to the end of the array
+john.unshift('Mr'); // Adds the 'Mr' to the beggining of the array
+console.log(john);
 
+john.pop(); // eliminates the last element of the array
+john.pop();
+john.shift(); // eliminates the first element of the array
+console.log(john);
 
+console.log(john.indexOf(23)); // indexOf tells you the position of an element
+// In this case we don't have a 23 in the array so the console gives us a -1
+console.log(john.indexOf('teacher'));
 
+var isDesigner = john.indexOf('designer') === -1 ? 'John is NOT a designer' :
+    'John is a designer';
+console.log(isDesigner);
 
+/********************************
+ * CODING CHALLENGE 2
+ */
 
+/*
+John and his family went on a holiday and went to 3 different restaurants.
+The bills were $124, $48 and $268.
 
+To tip a waiter a fair amount, John created a simple tip calculator (as a function).
+He likes to tip 20% of the bill when the bill is less than $50, 15% when the bill is 
+between $50 and $200, and 10% if the bill is more than $200.
+
+In the end, John would like to have 2 arrays:
+1) Containing all 3 tips (one for each bill)
+2) Containing all 3 final paid amounts (bill + tip)
+
+(NOTE: To calculate 20% of a value, simply multiply it with 20/100 = 0.2)
+
+*/
+
+function calculateBill(bill) {
+    if (bill < 50) {
+        return (bill * 0.2) + bill;
+    } else if (bill >= 50 && bill < 200) {
+        return (bill * 0.15) + bill;
+    } else {
+        return (bill * 0.1) + bill;
+    }
+}
+
+var bills = [124, 48, 268]
+var totalBills = [calculateBill(bills[0]),
+    calculateBill(bills[1]),
+    calculateBill(bills[2])
+];
+
+console.log(totalBills);
+
+function calculateTip(bill) {
+    if (bill < 50) {
+        return (bill * 0.2);
+    } else if (bill >= 50 && bill < 200) {
+        return (bill * 0.15);
+    } else {
+        return (bill * 0.1);
+    }
+}
+var tips = [calculateTip(bills[0]),
+    calculateTip(bills[1]),
+    calculateTip(bills[2])
+];
+var finalValues = [bills[0] + tips[0],
+    bills[1] + tips[1],
+    bills[2] + tips[2]
+];
+
+console.log(tips);
+console.log(finalValues);
